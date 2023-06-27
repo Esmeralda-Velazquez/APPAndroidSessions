@@ -1,0 +1,20 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/main_item"
+        android:title="Menu">
+        <menu>
+            <item
+                android:id="@+id/inbox_item"
+                android:title="Hola"
+                android:checkable="true" />
+            <item
+                android:id="@+id/outbox_item"
+                android:title="la prueba 2"
+                android:checkable="true" />
+            <item
+                android:id="@+id/favourites_item"
+                android:title="la prueba 3"
+                android:checkable="true" />
+        </menu>
+    </item>
+</menu>
