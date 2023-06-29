@@ -1,12 +1,12 @@
 package com.example.appsessions
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.appcompat.app.ActionBarDrawerToggle
-import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.GravityCompat
-import com.google.android.material.navigation.NavigationView
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.widget.Toolbar
 import android.view.MenuItem
+import android.widget.Toast
+import com.google.android.material.navigation.NavigationView
 
 class HomeActivity : AppCompatActivity() {
 
@@ -17,50 +17,48 @@ class HomeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
 
-        val toolbar: Toolbar = findViewById(R.id.toolbar)
-        setSupportActionBar(toolbar)
-
         drawerLayout = findViewById(R.id.drawer_layout)
         navigationView = findViewById(R.id.navigation_view)
 
-        val toggle = ActionBarDrawerToggle(
-            this,
-            drawerLayout,
-            toolbar,
-            R.string.navigation_drawer_open,
-            R.string.navigation_drawer_close
-        )
+        val toolbar: Toolbar = findViewById(R.id.toolbar)
+        setSupportActionBar(toolbar)
 
+        val toggle = ActionBarDrawerToggle(
+            this, drawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close
+        )
         drawerLayout.addDrawerListener(toggle)
         toggle.syncState()
 
         navigationView.setNavigationItemSelectedListener { menuItem ->
-            // Maneja los clics de los elementos del menú de la barra lateral aquí
             when (menuItem.itemId) {
-
+                R.id.nav_item1 -> {
+                    // Acción para el elemento del menú 1
+                    Toast.makeText(this, "Opción 1 seleccionada", Toast.LENGTH_SHORT).show()
+                    drawerLayout.closeDrawers()
+                    true
+                }
+                R.id.nav_item2 -> {
+                    // Acción para el elemento del menú 2
+                    Toast.makeText(this, "Opción 2 seleccionada", Toast.LENGTH_SHORT).show()
+                    drawerLayout.closeDrawers()
+                    true
+                }
+                R.id.nav_item3 -> {
+                    // Acción para el elemento del menú 3
+                    Toast.makeText(this, "Opción 3 seleccionada", Toast.LENGTH_SHORT).show()
+                    drawerLayout.closeDrawers()
+                    true
+                }
+                else -> false
             }
-
-            drawerLayout.closeDrawer(GravityCompat.START)
-            true
         }
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        val id = item.itemId
-
-        if (id == android.R.id.home) {
-            drawerLayout.openDrawer(GravityCompat.START)
+        if (item.itemId == android.R.id.home) {
+            drawerLayout.openDrawer(navigationView)
             return true
         }
-
         return super.onOptionsItemSelected(item)
-    }
-
-    override fun onBackPressed() {
-        if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
-            drawerLayout.closeDrawer(GravityCompat.START)
-        } else {
-            super.onBackPressed()
-        }
     }
 }
