@@ -46,19 +46,19 @@
                     android:id="@+id/tvHello"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="LOGIN"
-                    android:textSize="35sp"
-                    android:textColor="#14477A"
+                    android:layout_gravity="center_horizontal"
                     android:layout_marginTop="16dp"
-                    android:layout_gravity="center_horizontal" />
+                    android:text="LOGIN"
+                    android:textColor="#14477A"
+                    android:textSize="35sp" />
 
                 <EditText
                     android:id="@+id/etUsername"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
-                    android:hint="  Username"
                     android:drawableLeft="@drawable/imguser"
+                    android:hint="  Username"
                     android:inputType="text" />
 
                 <EditText
@@ -76,8 +76,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
                     android:background="@drawable/rounded_button"
-                    android:text="GET IN"
-                    android:textColor="#FFFFFF" />
+                    android:text="GET IN" />
 
             </LinearLayout>
         </RelativeLayout>
