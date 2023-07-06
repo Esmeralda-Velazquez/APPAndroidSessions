@@ -1,23 +1,26 @@
-
 <shape xmlns:android="http://schemas.android.com/apk/res/android">
-    <solid android:color="#FFFFFF" />
-    <corners android:radius="20dp" />
+    <solid android:color="#E6D0DE" /> <!-- Color del recuadro -->
+    <corners android:radius="15dp" />
     <padding
         android:left="16dp"
         android:top="16dp"
         android:right="16dp"
         android:bottom="16dp" />
 
+    <stroke
+        android:width="5dp"
+        android:color="#FFFFFF" /> <!-- Color del borde -->
+
     <item>
         <shape>
             <corners android:radius="50dp" />
-            <solid android:color="#000000" />
+            <solid android:color="#E6D0DE" />
         </shape>
     </item>
     <item android:bottom="4dp">
         <shape>
             <corners android:radius="20dp" />
-            <solid android:color="#000000" />
+            <solid android:color="#E6D0DE" />
         </shape>
     </item>
 </shape>

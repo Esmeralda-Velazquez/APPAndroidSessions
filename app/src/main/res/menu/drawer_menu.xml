@@ -5,17 +5,35 @@
         android:id="@+id/nav_header"
         android:title=""
         app:actionLayout="@layout/menu_header_layout"
-        android:layout_margin="0dp"/>
+        android:layout_margin="0dp" />
 
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_item1"
-            android:title="Opción 1" />
+            android:title="Course summary"
+            app:showAsAction="never"
+            android:textColor="#FF0000"
+        android:iconTint="#FF0000" />
+
         <item
             android:id="@+id/nav_item2"
-            android:title="Opción 2" />
+            android:title="Regulation"
+            app:showAsAction="never"
+            android:textColor="#00FF00"
+        android:iconTint="#00FF00" />
+
         <item
             android:id="@+id/nav_item3"
-            android:title="Opción 3" />
+            android:title="Syllabus"
+            app:showAsAction="never"
+            android:textColor="#0000FF"
+        android:iconTint="#0000FF" />
+
+        <item
+            android:id="@+id/nav_item4"
+            android:title="Sessions"
+            app:showAsAction="never"
+            android:textColor="#FF00FF"
+        android:iconTint="#FF00FF" />
     </group>
 </menu>

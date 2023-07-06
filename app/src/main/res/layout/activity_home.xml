@@ -4,7 +4,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
 
     <!-- Contenido principal -->
     <LinearLayout
@@ -21,17 +22,17 @@
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
                 android:background="?attr/colorPrimary"
-                app:title="Curso Android"
-                app:titleTextColor="@android:color/white"
-                app:navigationIcon="@drawable/menuicon" />
+                app:navigationIcon="@drawable/menuicon"
+                app:title="Android course"
+                app:titleTextColor="@android:color/white" />
         </com.google.android.material.appbar.AppBarLayout>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Bienvenido alumno"
+            android:text="Welcome student%"
             android:textSize="20sp"
-            android:textColor="@color/primary"
+            android:textColor="@color/colorCustomText"
             android:layout_marginTop="20dp"
             android:layout_marginLeft="20dp"
             android:textStyle="bold" />
@@ -41,9 +42,9 @@
             android:layout_height="wrap_content"
             android:text="Sessions"
             android:textSize="18sp"
-            android:textColor="@color/primary"
+            android:textColor="@color/colorCustomText"
             android:layout_marginTop="20dp"
-            android:layout_marginLeft="28dp" />
+            android:layout_gravity="center_horizontal" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -53,36 +54,32 @@
 
             <ImageView
                 android:id="@+id/crown1"
-                android:layout_width="50dp"
+                android:layout_width="80dp"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="55dp"
+                android:layout_marginLeft="5dp"
                 android:src="@drawable/crown_gray" />
 
             <ImageView
                 android:id="@+id/crown2"
-                android:layout_width="50dp"
+                android:layout_width="80dp"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
                 android:src="@drawable/crown_gray" />
 
             <ImageView
                 android:id="@+id/crown3"
-                android:layout_width="50dp"
-                android:layout_marginLeft="10dp"
+                android:layout_width="80dp"
                 android:layout_height="wrap_content"
                 android:src="@drawable/crown_gray" />
 
             <ImageView
                 android:id="@+id/crown4"
-                android:layout_width="50dp"
-                android:layout_marginLeft="10dp"
+                android:layout_width="80dp"
                 android:layout_height="wrap_content"
                 android:src="@drawable/crown_gray" />
 
             <ImageView
                 android:id="@+id/crown5"
-                android:layout_width="50dp"
-                android:layout_marginLeft="10dp"
+                android:layout_width="80dp"
                 android:layout_height="wrap_content"
                 android:src="@drawable/crown_gray" />
 
@@ -92,14 +89,23 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_marginTop="-220dp">
+            android:layout_marginTop="-180dp">
 
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="Contador"
+                android:text="Completed"
+                android:textColor="@color/primary"
+                android:id="@+id/completed_text" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="Exams"
                 android:textColor="@color/primary" />
 
             <TextView
@@ -107,15 +113,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="Contador"
-                android:textColor="@color/primary" />
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="Contador"
+                android:text="Tasks"
                 android:textColor="@color/primary" />
 
         </LinearLayout>
@@ -123,52 +121,36 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="43dp"
-            android:layout_marginTop="-15dp"
+            android:layout_marginTop="5dp"
             android:orientation="horizontal">
-
-            <LinearLayout
-                android:layout_width="74dp"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="28dp"
-                android:layout_marginTop="20dp"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="28dp"
-                    android:layout_height="wrap_content"
-                    android:text="1"
-                    android:textColor="@color/primary"
-                    android:textSize="16sp" />
-
-                <ImageView
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:layout_marginLeft="10dp"
-                    android:src="@drawable/crown_yellow" />
-            </LinearLayout>
 
 
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="45dp"
-                android:layout_marginTop="20dp"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="2"
+                android:text="0"
                 android:textColor="@color/primary" />
 
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="2dp"
-                android:layout_marginTop="20dp"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="3"
+                android:text="0"
+                android:textColor="@color/primary" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="0"
                 android:textColor="@color/primary" />
 
         </LinearLayout>
+
     </LinearLayout>
 
     <!-- Menú lateral -->
@@ -177,6 +159,8 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="start"
-        app:menu="@menu/drawer_menu" />
+        app:menu="@menu/drawer_menu"
+        android:background="#D886C5"
+        />
 
 </androidx.drawerlayout.widget.DrawerLayout>

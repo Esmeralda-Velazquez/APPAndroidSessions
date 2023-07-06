@@ -2,12 +2,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="#FFC0CB">
+ >
 
     <View
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#FFC0CB" />
+       />
 
     <!-- Contenido centrado -->
     <LinearLayout
@@ -18,8 +18,8 @@
         android:padding="0dp">
 
         <de.hdodenhof.circleimageview.CircleImageView
-            android:layout_width="200dp"
-            android:layout_height="200dp"
+            android:layout_width="180dp"
+            android:layout_height="180dp"
             android:src="@drawable/perfil_temp"
             android:scaleType="centerCrop"
             app:civ_border_color="@android:color/white"
@@ -29,6 +29,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Esmeralda Velazquez"
+            android:textColor="@color/white"
             android:textSize="18sp"
             android:padding="5dp"
             android:gravity="center" />
@@ -36,6 +37,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="velazquezesmeraldard@gmail.com"
+            android:textColor="@color/white"
             android:textSize="15sp"
             android:padding="0dp"
             android:gravity="center" />
