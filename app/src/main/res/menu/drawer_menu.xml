@@ -9,31 +9,31 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_item1"
+            android:id="@+id/nav_summary"
             android:title="Course summary"
-            app:showAsAction="never"
-            android:textColor="#FF0000"
-        android:iconTint="#FF0000" />
+            app:showAsAction="never" />
 
         <item
-            android:id="@+id/nav_item2"
+            android:id="@+id/nav_regulation"
             android:title="Regulation"
-            app:showAsAction="never"
-            android:textColor="#00FF00"
-        android:iconTint="#00FF00" />
+            app:showAsAction="never" />
 
         <item
-            android:id="@+id/nav_item3"
+            android:id="@+id/nav_syllabus"
             android:title="Syllabus"
-            app:showAsAction="never"
-            android:textColor="#0000FF"
-        android:iconTint="#0000FF" />
+            app:showAsAction="never" />
 
         <item
-            android:id="@+id/nav_item4"
+            android:id="@+id/nav_sessions"
             android:title="Sessions"
-            app:showAsAction="never"
-            android:textColor="#FF00FF"
-        android:iconTint="#FF00FF" />
+            app:showAsAction="never" />
+        <item
+            android:id="@+id/nav_profile"
+            android:title="View profile"
+            app:showAsAction="never" />
+        <item
+            android:id="@+id/nav_signOff"
+            android:title="Sign off"
+            app:showAsAction="never" />
     </group>
 </menu>

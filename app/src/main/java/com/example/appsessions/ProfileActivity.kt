@@ -10,16 +10,17 @@ import com.google.android.material.navigation.NavigationView
 import android.view.MenuItem
 
 
-class SummaryActivity : AppCompatActivity() {
+class ProfileActivity : AppCompatActivity() {
 
     private lateinit var drawerLayout: DrawerLayout
     private lateinit var navigationView: NavigationView
     private lateinit var toolbar: Toolbar
     private lateinit var toggle: ActionBarDrawerToggle
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_summary)
+        setContentView(R.layout.activity_profile)
 
         drawerLayout = findViewById(R.id.drawer_layout)
         navigationView = findViewById(R.id.navigation_view)

@@ -24,29 +24,26 @@ class MainActivity: AppCompatActivity() {
         btnLogin.setOnClickListener {
             val username = etUsername.text.toString()
             val password = etPassword.text.toString()
-
-            if (username.isNotEmpty() && password.isNotEmpty()) {
-                // Aquí puedes agregar la lógica para validar las credenciales de inicio de sesión
-                Toast.makeText(this, "Login successful", Toast.LENGTH_SHORT).show()
-                if (validateCredentials(username, password)) {
-                    // Credenciales válidas, redirige a la siguiente pantalla
-                    redirectToNextScreen()
-                } else {
-                    Toast.makeText(this, "Invalid username or password", Toast.LENGTH_SHORT).show()
-                }
+            checkCredentials(username, password)
+        }
+    }
+    private fun checkCredentials(username: String,password: String){
+        if (username.isNotEmpty() && password.isNotEmpty()) {
+            Toast.makeText(this, "Login successful", Toast.LENGTH_SHORT).show()
+            if (validateCredentials(username, password)) {
+                redirectToNextScreen()
             } else {
-                Toast.makeText(this, "Please enter username and password", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Invalid username or password", Toast.LENGTH_SHORT).show()
             }
+        } else {
+            Toast.makeText(this, "Please enter username and password", Toast.LENGTH_SHORT).show()
         }
     }
     private fun validateCredentials(username: String, password: String): Boolean {
-        // Aquí puedes implementar la lógica de validación de las credenciales
-        // Por ejemplo, puedes hacer una consulta a una base de datos o comparar con datos predefinidos
         return username == "admin" && password == "password"
     }
 
     private fun redirectToNextScreen() {
-        // Aquí defines la actividad de destino a la que quieres redirigir después del inicio de sesión exitoso
         val intent = Intent(this, HomeActivity::class.java)
         startActivity(intent)
     }

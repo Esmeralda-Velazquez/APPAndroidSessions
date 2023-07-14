@@ -8,8 +8,6 @@ import com.google.android.material.navigation.NavigationView
 import androidx.appcompat.app.ActionBarDrawerToggle
 import android.content.Intent
 
-
-
 class HomeActivity : AppCompatActivity() {
 
     private lateinit var drawerLayout: DrawerLayout
@@ -44,24 +42,35 @@ class HomeActivity : AppCompatActivity() {
         navigationView.setNavigationItemSelectedListener { menuItem ->
             // Manejar los clics en los elementos del menú aquí
             when (menuItem.itemId) {
-                R.id.nav_item1 -> {
-                    // Acción para el elemento del menú 1
+                R.id.nav_summary -> {
                     val intent = Intent(this, SummaryActivity::class.java)
                     startActivity(intent)
                     drawerLayout.closeDrawers()
                     return@setNavigationItemSelectedListener true
                 }
-                R.id.nav_item2 -> {
-                    // Acción para el elemento del menú 2
+                R.id.nav_regulation -> {
                     drawerLayout.closeDrawers()
                     return@setNavigationItemSelectedListener true
                 }
-                R.id.nav_item3 -> {
-                    // Acción para el elemento del menú 3
+                R.id.nav_syllabus -> {
                     drawerLayout.closeDrawers()
                     return@setNavigationItemSelectedListener true
                 }
-                // Agregar más elementos del menú aquí según sea necesario
+                R.id.nav_sessions -> {
+                    drawerLayout.closeDrawers()
+                    return@setNavigationItemSelectedListener true
+                }
+                R.id.nav_profile -> {
+                    val intent = Intent(this, ProfileActivity::class.java)
+                    startActivity(intent)
+                    drawerLayout.closeDrawers()
+                    return@setNavigationItemSelectedListener true
+                }
+                R.id.nav_signOff -> {
+                    drawerLayout.closeDrawers()
+                    return@setNavigationItemSelectedListener true
+                }
+
             }
             false
         }
