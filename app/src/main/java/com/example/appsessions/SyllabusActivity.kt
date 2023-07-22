@@ -16,8 +16,7 @@ class SyllabusActivity : AppCompatActivity() {
     private lateinit var navigationView: NavigationView
     private lateinit var toolbar: Toolbar
     private lateinit var toggle: ActionBarDrawerToggle
-    private lateinit var hola: ActionBarDrawerToggle
-    private lateinit var hola2: ActionBarDrawerToggle
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
