@@ -24,8 +24,6 @@ class MainActivity: AppCompatActivity() {
     private lateinit var etUsername: EditText
     private lateinit var etPassword: EditText
     private lateinit var btnLogin: Button
-    val auth = FirebaseAuth.getInstance()
-    val database = FirebaseDatabase.getInstance()
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -38,56 +36,14 @@ class MainActivity: AppCompatActivity() {
         btnLogin.setOnClickListener {
             val email = etUsername.text.toString()
             val password = etPassword.text.toString()
-            //checkCredentials(email, password)
-            validateCredentialsFireBD(email,password)
+            checkCredentials(email, password)
+            //validateCredentialsFireBD(email,password)
         }
     }
 
 
-    private fun validateCredentialsFireBD(email: String, password: String) {
-        auth.signInWithEmailAndPassword(email, password)
-            .addOnCompleteListener(this) { task ->
-                if (task.isSuccessful) {
-                    val user = auth.currentUser
-                    Toast.makeText(this, "Inicio de sesión exitoso", Toast.LENGTH_LONG).show()
-                    setSeason("5")
-                    getSeasons()
 
-                } else {
-                    Toast.makeText(this, "Error en el inicio de sesión: ${task.exception?.message}", Toast.LENGTH_LONG).show()
-                }
-            }
-    }
 
-    fun getSeasons() {
-        val reference = database.getReference("seasons")
-
-        reference.addListenerForSingleValueEvent(object : ValueEventListener {
-            override fun onDataChange(dataSnapshot: DataSnapshot) {
-                for (seasonSnapshot in dataSnapshot.children) {
-                    val season = seasonSnapshot.getValue(Season::class.java)
-                    val message = "{ \"name\" : \"${season?.name}\", \"description\" : \"${season?.description}\", \"status\" : ${season?.status} }"
-
-                    Toast.makeText(this@MainActivity, message, Toast.LENGTH_LONG).show()
-                    Log.d("Season Data", message)
-                }
-            }
-
-            override fun onCancelled(databaseError: DatabaseError) {
-                println("Error al leer los datos ${databaseError.message}")
-            }
-        })
-    }
-
-    fun setSeason(id:String) {
-        val reference = database.getReference("seasons")
-
-        val season = Season("Seasión prueba2","Descripción prueba",false)
-
-        reference.child(id).setValue(season).addOnCompleteListener {
-            Toast.makeText(this@MainActivity, "Se guardo la info", Toast.LENGTH_LONG).show()
-        }
-    }
 
     private fun validateCredentials(email: String, password: String, callback: (Boolean) -> Unit) {
         val apiService = ApiClient.getClient()
