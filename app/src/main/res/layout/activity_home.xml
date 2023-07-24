@@ -28,9 +28,9 @@
         </com.google.android.material.appbar.AppBarLayout>
 
         <TextView
+            android:id="@+id/textViewWelcome"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Welcome student%"
             android:textSize="20sp"
             android:textColor="@color/colorCustomText"
             android:layout_marginTop="20dp"
@@ -54,32 +54,32 @@
 
             <ImageView
                 android:id="@+id/crown1"
-                android:layout_width="80dp"
+                android:layout_width="75dp"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
+                android:layout_marginLeft="2dp"
                 android:src="@drawable/crown_gray" />
 
             <ImageView
                 android:id="@+id/crown2"
-                android:layout_width="80dp"
+                android:layout_width="75dp"
                 android:layout_height="wrap_content"
                 android:src="@drawable/crown_gray" />
 
             <ImageView
                 android:id="@+id/crown3"
-                android:layout_width="80dp"
+                android:layout_width="75dp"
                 android:layout_height="wrap_content"
                 android:src="@drawable/crown_gray" />
 
             <ImageView
                 android:id="@+id/crown4"
-                android:layout_width="80dp"
+                android:layout_width="75dp"
                 android:layout_height="wrap_content"
                 android:src="@drawable/crown_gray" />
 
             <ImageView
                 android:id="@+id/crown5"
-                android:layout_width="80dp"
+                android:layout_width="75dp"
                 android:layout_height="wrap_content"
                 android:src="@drawable/crown_gray" />
 

@@ -17,6 +17,7 @@ import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
+import org.json.JSONObject
 
 
 class MainActivity: AppCompatActivity() {
@@ -37,13 +38,15 @@ class MainActivity: AppCompatActivity() {
             val email = etUsername.text.toString()
             val password = etPassword.text.toString()
             checkCredentials(email, password)
-            //validateCredentialsFireBD(email,password)
+        }
+
+        val sharedPreferences = getSharedPreferences("MyPrefs", MODE_PRIVATE)
+        val name = sharedPreferences.getString("name", "")
+        val token = sharedPreferences.getString("token", "")
+        if (name?.isNotEmpty() == true && token?.isNotEmpty() == true) {
+            redirectToNextScreen()
         }
     }
-
-
-
-
 
     private fun validateCredentials(email: String, password: String, callback: (Boolean) -> Unit) {
         val apiService = ApiClient.getClient()
@@ -54,12 +57,28 @@ class MainActivity: AppCompatActivity() {
             override fun onResponse(call: Call<LoginResponse>, response: Response<LoginResponse>) {
                 if (response.isSuccessful) {
                     val loginResponse = response.body()
-                    val responseBody = response.raw().toString()
-                    Toast.makeText(applicationContext, "Inicio de sesión correctamente", Toast.LENGTH_SHORT).show()
-                    Log.d("API Response", responseBody)
-                    callback(true)
+                    if (loginResponse != null) {
+                        val name = loginResponse.name
+                        val token = loginResponse.token
+                        if (name != null && token != null && name.isNotEmpty() && token.isNotEmpty()) {
+                            val sharedPreferences = getSharedPreferences("MyPrefs", MODE_PRIVATE)
+                            val editor = sharedPreferences.edit()
+                            editor.putString("name", name)
+                            editor.putString("token", token)
+                            editor.apply()
+                            Toast.makeText(applicationContext, "Credenciales correctas", Toast.LENGTH_SHORT).show()
+                            Log.d("API Response", "JSON Response: $loginResponse")
+                            callback(true)
+                        } else {
+                            Log.d("API Response", "El name o token están vacíos o son nulos")
+                            callback(false)
+                        }
+                    } else {
+                        Log.d("API Response", "loginResponse es nulo")
+                        callback(false)
+                    }
                 } else {
-                    Toast.makeText(applicationContext, "Credenciales inválidas", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(applicationContext, "Llena los campos", Toast.LENGTH_SHORT).show()
                     callback(false)
                 }
             }
@@ -90,5 +109,6 @@ class MainActivity: AppCompatActivity() {
     private fun redirectToNextScreen() {
         val intent = Intent(this, HomeActivity::class.java)
         startActivity(intent)
+        finish()
     }
 }
