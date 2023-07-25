@@ -7,10 +7,8 @@ import androidx.appcompat.widget.Toolbar
 import androidx.drawerlayout.widget.DrawerLayout
 import com.google.android.material.navigation.NavigationView
 import androidx.appcompat.app.ActionBarDrawerToggle
-import android.content.Intent
-import android.content.res.ColorStateList
 import android.widget.TextView
-import androidx.core.content.ContextCompat
+import com.example.appsessions.Items.NavigationMenu
 
 class HomeActivity : AppCompatActivity() {
 

@@ -1,11 +1,15 @@
-package com.example.appsessions
+package com.example.appsessions.Items
 
 import android.content.Intent
 import android.content.res.ColorStateList
-import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.drawerlayout.widget.DrawerLayout
+import com.example.appsessions.ProfileActivity
+import com.example.appsessions.R
+import com.example.appsessions.RegulationActivity
+import com.example.appsessions.SessionsActivity
+import com.example.appsessions.SummaryActivity
 import com.google.android.material.navigation.NavigationView
 
 object NavigationMenu {
@@ -36,6 +40,8 @@ object NavigationMenu {
                     return@setNavigationItemSelectedListener true
                 }
                 R.id.nav_sessions -> {
+                    val intent = Intent(activity, SessionsActivity::class.java)
+                    activity.startActivity(intent)
                     drawerLayout.closeDrawers()
                     return@setNavigationItemSelectedListener true
                 }

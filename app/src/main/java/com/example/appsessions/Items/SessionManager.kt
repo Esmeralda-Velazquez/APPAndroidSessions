@@ -1,7 +1,8 @@
-package com.example.appsessions
+package com.example.appsessions.Items
 
 import android.content.Context
 import android.content.Intent
+import com.example.appsessions.MainActivity
 
 
 object SessionManager {
@@ -10,6 +11,8 @@ object SessionManager {
         val editor = sharedPreferences.edit()
         editor.remove("name")
         editor.remove("token")
+        editor.remove("email")
+        editor.remove("studies")
         editor.apply()
 
         val intent = Intent(context, MainActivity::class.java)

@@ -20,14 +20,15 @@
                 android:layout_height="?attr/actionBarSize"
                 android:background="?attr/colorPrimary"
                 app:navigationIcon="@drawable/menuicon"
-                app:title="Regulation"
+                app:title="Sessions"
                 app:titleTextColor="@android:color/white" />
         </com.google.android.material.appbar.AppBarLayout>
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recycler_view_rules"
+        <LinearLayout
+            android:id="@+id/button_container"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+        </LinearLayout>
     </LinearLayout>
 
     <!-- Menú lateral -->

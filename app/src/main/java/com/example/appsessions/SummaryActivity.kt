@@ -1,7 +1,5 @@
 package com.example.appsessions
 
-import android.content.Intent
-import android.content.res.ColorStateList
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.ActionBarDrawerToggle
@@ -9,7 +7,7 @@ import androidx.appcompat.widget.Toolbar
 import androidx.drawerlayout.widget.DrawerLayout
 import com.google.android.material.navigation.NavigationView
 import android.view.MenuItem
-import androidx.core.content.ContextCompat
+import com.example.appsessions.Items.NavigationMenu
 
 
 class SummaryActivity : AppCompatActivity() {

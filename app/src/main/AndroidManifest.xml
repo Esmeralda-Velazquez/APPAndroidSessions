@@ -31,7 +31,8 @@
         <activity android:name=".SummaryActivity" />
         <activity android:name=".ProfileActivity" />
         <activity android:name=".RegulationActivity" />
-
+        <activity android:name=".SessionsActivity" />
+        <activity android:name=".VideoActivity" />
     </application>
 
 </manifest>

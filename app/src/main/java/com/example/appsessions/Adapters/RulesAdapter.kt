@@ -1,4 +1,4 @@
-package com.example.appsessions
+package com.example.appsessions.Adapters
 
 import android.view.LayoutInflater
 import android.view.View
@@ -6,6 +6,8 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.appsessions.R
+import com.example.appsessions.Models.Rule
 
 class RulesAdapter(private val rulesList: List<Rule>) : RecyclerView.Adapter<RulesAdapter.RuleViewHolder>() {
 

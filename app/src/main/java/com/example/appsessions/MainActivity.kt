@@ -43,6 +43,8 @@ class MainActivity: AppCompatActivity() {
         val sharedPreferences = getSharedPreferences("MyPrefs", MODE_PRIVATE)
         val name = sharedPreferences.getString("name", "")
         val token = sharedPreferences.getString("token", "")
+        //val email = sharedPreferences.getString("email", "")
+        //val studies = sharedPreferences.getString("studies", "")
         if (name?.isNotEmpty() == true && token?.isNotEmpty() == true) {
             redirectToNextScreen()
         }
@@ -60,11 +62,15 @@ class MainActivity: AppCompatActivity() {
                     if (loginResponse != null) {
                         val name = loginResponse.name
                         val token = loginResponse.token
+                        val email = loginResponse.token
+                        val studies = loginResponse.token
                         if (name != null && token != null && name.isNotEmpty() && token.isNotEmpty()) {
                             val sharedPreferences = getSharedPreferences("MyPrefs", MODE_PRIVATE)
                             val editor = sharedPreferences.edit()
                             editor.putString("name", name)
                             editor.putString("token", token)
+                            editor.putString("email", email)
+                            editor.putString("studies",studies )
                             editor.apply()
                             Toast.makeText(applicationContext, "Credenciales correctas", Toast.LENGTH_SHORT).show()
                             Log.d("API Response", "JSON Response: $loginResponse")

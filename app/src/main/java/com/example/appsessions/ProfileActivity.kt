@@ -7,6 +7,7 @@ import androidx.appcompat.widget.Toolbar
 import androidx.drawerlayout.widget.DrawerLayout
 import com.google.android.material.navigation.NavigationView
 import android.view.MenuItem
+import com.example.appsessions.Items.NavigationMenu
 
 class ProfileActivity : AppCompatActivity() {
 
