@@ -12,11 +12,6 @@ import com.example.appsessions.Back.LoginResponse
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.DatabaseError
-import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.database.ValueEventListener
 import org.json.JSONObject
 
 
@@ -43,8 +38,7 @@ class MainActivity: AppCompatActivity() {
         val sharedPreferences = getSharedPreferences("MyPrefs", MODE_PRIVATE)
         val name = sharedPreferences.getString("name", "")
         val token = sharedPreferences.getString("token", "")
-        //val email = sharedPreferences.getString("email", "")
-        //val studies = sharedPreferences.getString("studies", "")
+
         if (name?.isNotEmpty() == true && token?.isNotEmpty() == true) {
             redirectToNextScreen()
         }

@@ -57,23 +57,18 @@ class SessionsActivity : AppCompatActivity() {
 
         val apiService = ApiClient.getClient()
 
-        // Realiza la solicitud para obtener todos los registros
         GlobalScope.launch(Dispatchers.IO) {
             val call: Call<List<Session>> = apiService.getAllSessions()
             call.enqueue(object : Callback<List<Session>> {
                 override fun onResponse(call: Call<List<Session>>, response: Response<List<Session>>) {
                     if (response.isSuccessful) {
                         val sessionList = response.body()
-                        // Verifica si la lista de sesiones no es nula y no está vacía
                         if (!sessionList.isNullOrEmpty()) {
                             runOnUiThread {
                                 val layout = findViewById<LinearLayout>(R.id.button_container)
 
-                                for (session in sessionList) {
-                                    val message = "Sesion: " + session.title +session.url
-                                    Toast.makeText(applicationContext, message, Toast.LENGTH_SHORT).show()
-
-                                    val button = createButton(session.title, session.url)
+                                for ((index, session) in sessionList.withIndex()) {
+                                    val button = createButton(index + 1,session.title, session.url)
                                     layout.addView(button)
                                 }
                             }
@@ -93,19 +88,28 @@ class SessionsActivity : AppCompatActivity() {
         }
     }
 
-    private fun createButton(title: String, url: String): Button {
+    private fun createButton(number: Int, title: String, url: String): Button {
         val button = Button(this)
-        button.text = title
+        button.text = "${number}. $title"
+        button.setBackgroundColor(resources.getColor(R.color.primary))
+        button.setTextColor(resources.getColor(android.R.color.white))
         button.setOnClickListener {
             val intent = Intent(this, VideoActivity::class.java)
             intent.putExtra("title", title)
             intent.putExtra("url", url)
             startActivity(intent)
-            Toast.makeText(applicationContext, url, Toast.LENGTH_SHORT).show()
         }
+
+        val buttonMargin = resources.getDimensionPixelSize(R.dimen.button_margin)
+        val layoutParams = LinearLayout.LayoutParams(
+            LinearLayout.LayoutParams.MATCH_PARENT,
+            resources.getDimensionPixelSize(R.dimen.button_height)
+        )
+        layoutParams.setMargins(buttonMargin, buttonMargin, buttonMargin, buttonMargin)
+        button.layoutParams = layoutParams
+
         return button
     }
-
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if (item.itemId == android.R.id.home) {
