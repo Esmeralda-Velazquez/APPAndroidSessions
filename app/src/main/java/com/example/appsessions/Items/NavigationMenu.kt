@@ -1,10 +1,13 @@
 package com.example.appsessions.Items
 
+import android.content.Context
 import android.content.Intent
 import android.content.res.ColorStateList
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.drawerlayout.widget.DrawerLayout
+import com.example.appsessions.HomeActivity
 import com.example.appsessions.ProfileActivity
 import com.example.appsessions.R
 import com.example.appsessions.RegulationActivity
@@ -16,13 +19,20 @@ object NavigationMenu {
     fun setupNavigationMenu(
         activity: AppCompatActivity,
         drawerLayout: DrawerLayout,
-        navigationView: NavigationView
+        navigationView: NavigationView,
     ) {
         val colorCustomText = ContextCompat.getColor(activity, R.color.white)
         navigationView.itemTextColor = ColorStateList.valueOf(colorCustomText)
+        navigationView.itemIconTintList = ColorStateList.valueOf(colorCustomText)
 
         navigationView.setNavigationItemSelectedListener { menuItem ->
             when (menuItem.itemId) {
+                R.id.nav_home -> {
+                    val intent = Intent(activity, HomeActivity::class.java)
+                    activity.startActivity(intent)
+                    drawerLayout.closeDrawers()
+                    return@setNavigationItemSelectedListener true
+                }
                 R.id.nav_summary -> {
                     val intent = Intent(activity, SummaryActivity::class.java)
                     activity.startActivity(intent)
@@ -32,10 +42,6 @@ object NavigationMenu {
                 R.id.nav_regulation -> {
                     val intent = Intent(activity, RegulationActivity::class.java)
                     activity.startActivity(intent)
-                    drawerLayout.closeDrawers()
-                    return@setNavigationItemSelectedListener true
-                }
-                R.id.nav_syllabus -> {
                     drawerLayout.closeDrawers()
                     return@setNavigationItemSelectedListener true
                 }

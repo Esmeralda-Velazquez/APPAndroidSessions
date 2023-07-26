@@ -56,10 +56,6 @@ class SyllabusActivity : AppCompatActivity() {
                     drawerLayout.closeDrawers()
                     return@setNavigationItemSelectedListener true
                 }
-                R.id.nav_syllabus -> {
-                    drawerLayout.closeDrawers()
-                    return@setNavigationItemSelectedListener true
-                }
                 R.id.nav_sessions -> {
                     drawerLayout.closeDrawers()
                     return@setNavigationItemSelectedListener true

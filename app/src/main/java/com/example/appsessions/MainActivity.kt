@@ -56,8 +56,8 @@ class MainActivity: AppCompatActivity() {
                     if (loginResponse != null) {
                         val name = loginResponse.name
                         val token = loginResponse.token
-                        val email = loginResponse.token
-                        val studies = loginResponse.token
+                        val email = loginResponse.email
+                        val studies = loginResponse.studies
                         if (name != null && token != null && name.isNotEmpty() && token.isNotEmpty()) {
                             val sharedPreferences = getSharedPreferences("MyPrefs", MODE_PRIVATE)
                             val editor = sharedPreferences.edit()

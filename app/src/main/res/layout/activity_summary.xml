@@ -28,7 +28,7 @@
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:cardCornerRadius="18dp"
+            app:cardCornerRadius="5dp"
             app:cardBackgroundColor="#75FFE4E1"
             app:cardElevation="2dp"
             app:cardUseCompatPadding="true"
@@ -53,9 +53,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text="Nuestra aplicación ofrece un completo curso de aprendizaje de Android. Aprende los fundamentos y técnicas avanzadas de desarrollo de aplicaciones móviles. Explora lecciones interactivas y ejemplos de código prácticos para adquirir habilidades en el desarrollo de Android. Domina los conceptos clave y conviértete en un experto en la creación de aplicaciones para dispositivos móviles"
+                    android:text="Nuestra aplicación ofrece un completo curso de aprendizaje de Android. Aprende los fundamentos y técnicas avanzadas de desarrollo de aplicaciones móviles. Explora lecciones interactivas y ejemplos de código prácticos para adquirir habilidades en el desarrollo de Android. Domina los conceptos clave y conviértete en un experto en la creación de aplicaciones para dispositivos móviles."
                     android:textColor="@color/colorCustomText"
-                    android:textSize="20sp" />
+                    android:textSize="18sp" />
             </LinearLayout>
 
         </androidx.cardview.widget.CardView>

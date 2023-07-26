@@ -1,5 +1,6 @@
 package com.example.appsessions.Back
 
+import com.example.appsessions.Models.ProfileUpdateData
 import retrofit2.Call
 import retrofit2.http.Body
 import retrofit2.http.POST
@@ -13,5 +14,7 @@ interface ApiService {
     @GET("sessions")
     fun getAllSessions(): Call<List<Session>>
 
+    @POST("/api/update_profile")
+    fun updateProfile(@Body data: ProfileUpdateData): Call<Void>
 }
 

@@ -28,7 +28,7 @@
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:cardCornerRadius="18dp"
+            app:cardCornerRadius="5dp"
             app:cardBackgroundColor="#75FFE4E1"
             app:cardElevation="2dp"
             app:cardUseCompatPadding="true"
@@ -37,12 +37,13 @@
 
             <ImageView
                 android:id="@+id/imgLogo"
-                android:layout_width="150dp"
-                android:layout_height="150dp"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
                 android:layout_gravity="center_horizontal"
+                android:layout_marginTop="30dp"
                 android:layout_marginRight="100dp"
                 android:layout_marginBottom="20dp"
-                android:src="@drawable/icon_one" />
+                android:src="@drawable/icon_perfil" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -52,30 +53,92 @@
 
                 <TextView
                     android:id="@+id/usernameProfile"
-                    android:layout_width="194dp"
+                    android:layout_width="210dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="145dp"
+                    android:layout_marginLeft="130dp"
                     android:layout_marginTop="10dp"
-                    android:text="Esmeralda Velazquez"
-                    android:textSize="18sp" />
+                    android:text=""
+                    android:textSize="18sp"
+                    android:textColor="@color/colorCustomText"/>
                 <TextView
                     android:id="@+id/emailProfile"
                     android:layout_width="194dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="145dp"
+                    android:layout_marginLeft="130dp"
                     android:layout_marginTop="10dp"
-                    android:text="velazquez@gmail.com"
-                    android:textSize="18sp" />
+                    android:text=""
+                    android:textSize="18sp"
+                    android:textColor="@color/colorCustomText"/>
+                <TextView
+                    android:id="@+id/studiesProfile"
+                    android:layout_width="194dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="130dp"
+                    android:layout_marginTop="10dp"
+                    android:text=""
+                    android:textSize="18sp"
+                    android:textColor="@color/colorCustomText"/>
+
+                <TextView
+                    android:id="@+id/editar"
+                    android:layout_width="192dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="100dp"
+                    android:layout_marginTop="50dp"
+                    android:text="EDIT PROFILE"
+                    android:textColor="@color/colorCustomText"
+                    android:textSize="20sp" />
+                <EditText
+                    android:id="@+id/editName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Name"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:textSize="18sp"
+                    />
+                <EditText
+                    android:id="@+id/editEmail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Email"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:textSize="18sp"
+                    />
+                <EditText
+                    android:id="@+id/editStudies"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Studies"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:textSize="18sp"
+                    />
+                <EditText
+                    android:id="@+id/editPassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="password"
+                    android:inputType="textPassword"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:textSize="18sp"
+                    />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="*When updating you will have to log in again"
+                    android:textSize="20sp"
+                    android:textColor="@color/colorCustomText"/>
                 <Button
-                    android:id="@+id/openAlertButton"
+                    android:id="@+id/btnActualizar"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Abrir alerta"
-                    android:onClick="openAlert"
-                    android:layout_marginTop="150dp"/>
-
-
-
+                    android:text="ACTUALIZAR"
+                    android:layout_gravity="center"
+                    android:textSize="18sp"
+                    />
             </LinearLayout>
 
         </androidx.cardview.widget.CardView>

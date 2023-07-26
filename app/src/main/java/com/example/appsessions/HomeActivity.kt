@@ -31,6 +31,7 @@ class HomeActivity : AppCompatActivity() {
     private lateinit var crown3: ImageView
     private lateinit var crown4: ImageView
     private lateinit var crown5: ImageView
+    private lateinit var completedTextView: TextView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
@@ -41,6 +42,8 @@ class HomeActivity : AppCompatActivity() {
 
         setSupportActionBar(toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
+        completedTextView = findViewById(R.id.completed)
 
         val toggle = ActionBarDrawerToggle(
             this,
@@ -56,19 +59,19 @@ class HomeActivity : AppCompatActivity() {
         toggle.syncState()
         val sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
         val name = sharedPreferences.getString("name", "")
+        val email = sharedPreferences.getString("email", "")
         val welcomeMessage = "Welcome $name"
 
         val textViewWelcome: TextView = findViewById(R.id.textViewWelcome)
         textViewWelcome.text = welcomeMessage
 
         NavigationMenu.setupNavigationMenu(this, drawerLayout, navigationView)
-
-        // Inicializar las coronas desde el diseño
         crown1 = findViewById(R.id.crown1)
         crown2 = findViewById(R.id.crown2)
         crown3 = findViewById(R.id.crown3)
         crown4 = findViewById(R.id.crown4)
         crown5 = findViewById(R.id.crown5)
+
         getSessionsFromService()
     }
     private fun getSessionsFromService() {
@@ -97,16 +100,15 @@ class HomeActivity : AppCompatActivity() {
         }
     }
     private fun updateCrowns(sessionList: List<Session>) {
-        sessionList.forEach { session ->
-            println("ID: ${session.id_session}, Title: ${session.title}, Status: ${session.status}, URL: ${session.url}")
-        }
 
         val completedSessionsCount = sessionList.count { it.status == "true" }
 
         when (completedSessionsCount) {
             0 -> setGrayCrowns()
             1 -> setOneYellowCrown()
+            3 -> setThreeYellowCrown()
         }
+        completedTextView.text = completedSessionsCount.toString()
     }
     private fun setGrayCrowns() {
         crown1.setImageResource(R.drawable.crown_gray)
@@ -120,6 +122,13 @@ class HomeActivity : AppCompatActivity() {
         crown1.setImageResource(R.drawable.crown_yellow)
         crown2.setImageResource(R.drawable.crown_gray)
         crown3.setImageResource(R.drawable.crown_gray)
+        crown4.setImageResource(R.drawable.crown_gray)
+        crown5.setImageResource(R.drawable.crown_gray)
+    }
+    private fun setThreeYellowCrown() {
+        crown1.setImageResource(R.drawable.crown_yellow)
+        crown2.setImageResource(R.drawable.crown_yellow)
+        crown3.setImageResource(R.drawable.crown_yellow)
         crown4.setImageResource(R.drawable.crown_gray)
         crown5.setImageResource(R.drawable.crown_gray)
     }
